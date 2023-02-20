@@ -5,6 +5,7 @@ module.exports = {
     devtool: 'cheap-module-source-map',
     entry: {
         paises: './src/main/webapp/resources/src/paises/App.js',
+        personas: '.src/main/webapp/resources/src/personas/App.js'
 
     },
     output: {
