@@ -8,15 +8,16 @@ export default class App {
 
         this.personas = new Personas({ idTablaPersonas: 'personas', api: this.api, ...config });
 
-        this.renderPaises();
+        this.renderPersonas();
     }
 
-    render() {
+    renderPersonas() {
         this.api.obtenerPersonas()
             .then(personas => {
                 this.personas.render(personas);
             })
             .catch (error => {
+                console.log(error);
                 showError(error);
             });
     }
