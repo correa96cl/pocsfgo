@@ -249,57 +249,10 @@ var Personas = /*#__PURE__*/function () {
         }, {
           data: 'pais',
           render: function render(data, type, row) {
+            console.log('Pais : ', data);
             return data;
           }
         }]
-      });
-      $(document).ready(function () {
-        this.tablaPersonas = $("#".concat(this.idTablaPersonas)).editor({
-          ajax: "../php/staff.php",
-          table: "#".concat(this.idTablaPersonas),
-          fields: [{
-            label: "First name:",
-            name: "first_name"
-          }, {
-            label: "Last name:",
-            name: "last_name"
-          }, {
-            label: "Position:",
-            name: "position"
-          }, {
-            label: "Office:",
-            name: "office"
-          }, {
-            label: "Extension:",
-            name: "extn"
-          }, {
-            label: "Start date:",
-            name: "start_date",
-            type: "datetime"
-          }, {
-            label: "Salary:",
-            name: "salary"
-          }],
-          dom: "Bfrtip",
-          buttons: [{
-            text: "Crear",
-            className: 'btn-light',
-            editor: this.tablaPersonas
-          }, {
-            text: " Edita",
-            className: 'btn-light',
-            editor: this.tablaPersonas
-          }, {
-            text: "Remover",
-            className: 'btn-light',
-            editor: this.tablaPersonas
-          }]
-        });
-
-        // Activate the bubble editor on click of a table cell
-        $("#".concat(this.idTablaPersonas)).on('click', 'tbody td:not(:first-child)', function (e) {
-          editor.bubble(this);
-        });
       });
     }
   }]);

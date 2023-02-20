@@ -6,8 +6,6 @@ export default class Personas {
 
     render(personas) {
 
-
-
         this.tablaPersonas = $(`#${this.idTablaPersonas}`).dataTable({
             data: personas,
             autoWidth: true,
@@ -37,6 +35,7 @@ export default class Personas {
                 {
                     data: 'pais',
                     render: (data, type, row) => {
+                        console.log('Pais : ', data);
                         return data;
                     }
                 }
@@ -44,45 +43,7 @@ export default class Personas {
 
         });
 
-            this.tablaPersonas = $(`#${this.idTablaPersonas}`).editor({
-                ajax: "../php/staff.php",
-                table: `#${this.idTablaPersonas}`,
-                fields: [{
-                    label: "First name:",
-                    name: "first_name"
-                }, {
-                    label: "Last name:",
-                    name: "last_name"
-                }, {
-                    label: "Position:",
-                    name: "position"
-                }, {
-                    label: "Office:",
-                    name: "office"
-                }, {
-                    label: "Extension:",
-                    name: "extn"
-                }, {
-                    label: "Start date:",
-                    name: "start_date",
-                    type: "datetime"
-                }, {
-                    label: "Salary:",
-                    name: "salary"
-                }
-                ],
-                dom: "Bfrtip",
-                buttons: [
-                    { text: "Crear", className: 'btn-light', editor: this.tablaPersonas},
-                    { text:" Edita",   className: 'btn-light', editor: this.tablaPersonas },
-                    { text: "Remover", className: 'btn-light', editor: this.tablaPersonas }
-                ]
-            });
 
-            // Activate the bubble editor on click of a table cell
-            $(`#${this.idTablaPersonas}`).on('click', 'tbody td:not(:first-child)', function (e) {
-                this.tablaPersonas.bubble(this);
-            });
     }
 
 }
