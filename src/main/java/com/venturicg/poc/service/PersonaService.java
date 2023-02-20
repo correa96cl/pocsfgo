@@ -9,7 +9,9 @@ public interface PersonaService {
 
     boolean updatePersona(Persona persona);
 
-    boolean deletePersona(Persona persona);
+    boolean deletePersona(String numeroDocumento);
 
     void insertPersona(Persona persona);
+
+    Persona obtenerPersonaById(String numeroDocumento);
 }

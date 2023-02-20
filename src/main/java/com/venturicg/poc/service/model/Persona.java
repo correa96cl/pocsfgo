@@ -2,15 +2,20 @@ package com.venturicg.poc.service.model;
 
 import com.venturicg.poc.web.dto.PaisDTO;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class Persona implements Serializable {
 
+
+    @NotBlank
     private String numeroDocumento;
+    @NotBlank
     private String nombres;
-
-    private String apellidos;
-
+    @NotBlank
+    private String apellido;
+    @NotNull
     private PaisDTO pais;
 
     public String getNumeroDocumento() {
@@ -29,12 +34,12 @@ public class Persona implements Serializable {
         this.nombres = nombres;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public PaisDTO getPais() {

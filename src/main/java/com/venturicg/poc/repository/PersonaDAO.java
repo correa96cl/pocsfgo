@@ -13,12 +13,15 @@ public interface PersonaDAO {
     @Select("select * from persona")
     List<Persona> obtenerPersonas();
 
-    @Update("UPDATE persona SET nombre = #{nombre}, apellido = #{apellido}, idPais = #{idPais} WHERE numeroDocumento = #{numeroDocumento}")
+    @Update("UPDATE persona SET nombres = #{nombres}, apellido = #{apellido}, idPais = #{pais.id} WHERE numeroDocumento = #{numeroDocumento}")
     boolean updatePersona(Persona persona);
 
-    @Delete("DELETE persona FROM numeroDocumento = #{numeroDocumento}")
-    boolean deletePersona(Persona persona);
+    @Delete("DELETE FROM persona WHERE numeroDocumento = #{numeroDocumento}")
+    boolean deletePersona(String numeroDocumento);
 
-    @Insert("INSERT INTO persona (numeroDocumento, nombre, apellido, idPais) VALUES(#{numeroDocumento}, #{nombre}, #{apellido}, #{idPais})")
+    @Insert("INSERT INTO persona (numeroDocumento, nombres, apellido, idPais) VALUES(#{numeroDocumento}, #{nombres}, #{apellido}, #{pais.id})")
     void insertPersona(Persona persona);
+
+    @Select("select * from persona where numeroDocumento = #{numeroDocumento} ")
+    Persona obtenerPersonaById(String numeroDocumento);
 }

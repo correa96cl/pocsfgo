@@ -26,12 +26,17 @@ public class PersonaServiceImpl implements PersonaService  {
     }
 
     @Override
-    public boolean deletePersona(Persona persona) {
-        return personaDAO.deletePersona(persona);
+    public boolean deletePersona(String numeroDocumento) {
+        return personaDAO.deletePersona(numeroDocumento);
     }
 
     @Override
     public void insertPersona(Persona persona) {
-        personaDAO.insertPersona(persona);
+         personaDAO.insertPersona(persona);
+    }
+
+    @Override
+    public Persona obtenerPersonaById(String numeroDocumento){
+        return personaDAO.obtenerPersonaById(numeroDocumento);
     }
 }
